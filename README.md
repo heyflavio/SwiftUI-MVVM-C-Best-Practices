@@ -15,6 +15,14 @@ This codebase demonstrates best practices for implementing and testing applicati
 
 ## Project Structure
 
+This project serves as an **abstraction** of a real-life application, providing a simplified yet scalable structure for modular development. The project is organized into two main sections: `ApplicationRoot` and `Components`. 
+
+- The `ApplicationRoot` handles the overall application lifecycle and navigation setup through the root coordinator. 
+- The `Components` folder follows a feature-based modular structure, where each component contains its own `Coordinator` and one or more `Screens`. Each screen consists of its own `View`, `ViewModel`, and associated protocols for `Input` and `Output` interactions.
+
+This structure aims for a clear separation of concerns, enhances testability, and promotes scalability. Additionally, the `Tests` folder mirrors the `Components` structure, providing targeted unit tests for each feature module and its screens.
+
+
 ```plaintext
 TestApp
 │
@@ -30,7 +38,9 @@ TestApp
 │   │   ├── [ScreenName]            // Example: FirstScreen
 │   │   │   ├── ViewModel
 │   │   │   │   ├── [ScreenViewModel].swift
-│   │   │   │   └── Protocols       // Protocol definitions for ViewModel
+│   │   │   │   └── Protocols       // Input/Output protocols for ViewModel interactions
+│   │   │   │       ├── [InputsProtocol].swift     // Example: FirstInputsProtocol
+│   │   │   │       └── [OutputsProtocol].swift    // Example: FirstOutputsProtocol
 │   │   │   └── Views
 │   │   │       └── [ScreenView].swift
 │   │   └── [OtherScreens]          // Additional screens within the component
