@@ -1,4 +1,4 @@
-# [WIP] SwiftUI & MVVM-C: Testing Best Practices
+# [WIP] SwiftUI & MVVM-C: Best Practices
 
 ## Overview
 
