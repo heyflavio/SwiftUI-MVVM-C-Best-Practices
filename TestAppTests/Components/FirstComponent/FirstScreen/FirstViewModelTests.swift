@@ -18,9 +18,7 @@ final class FirstViewModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         mockCoordinator = FirstComponentCoordinatorMock()
-        
-        let dependencies = FirstViewModel<FirstComponentCoordinatorMock>.Dependencies(appCoordinator: mockCoordinator)
-        viewModel = FirstViewModel<FirstComponentCoordinatorMock>(dependencies: dependencies)
+        viewModel = FirstViewModel<FirstComponentCoordinatorMock>(dependencies: .init(appCoordinator: mockCoordinator))
         
         cancellables = []
     }
