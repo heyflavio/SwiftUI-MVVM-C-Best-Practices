@@ -3,12 +3,12 @@ import XCTest
 
 class FirstComponentCoordinatorTests: XCTestCase {
     
-    var appCoordinator: MockAppCoordinator!
+    var appCoordinator: AppCoordinatorMock!
     var firstComponentCoordinator: FirstComponentCoordinator!
     
     override func setUp() {
         super.setUp()
-        appCoordinator = MockAppCoordinator()
+        appCoordinator = AppCoordinatorMock()
         firstComponentCoordinator = FirstComponentCoordinator(appCoordinator: appCoordinator)
     }
     
@@ -31,23 +31,5 @@ class FirstComponentCoordinatorTests: XCTestCase {
     func testViewForDefaultRoute() {
         let view = firstComponentCoordinator.view(for: .default)
         XCTAssertNotNil(view)
-    }
-}
-
-// Mock class for AppCoordinator
-class MockAppCoordinator: AppCoordinator {
-    
-    var lastNavigatedRoute: FirstComponentCoordinator.Route?
-    var didPop = false
-    
-    override func navigate(to destination: any Hashable) {
-        guard let route = destination as? FirstComponentCoordinator.Route else {
-            return
-        }
-        self.lastNavigatedRoute = route
-    }
-    
-    override func pop() {
-        self.didPop = true
     }
 }
