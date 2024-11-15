@@ -34,7 +34,9 @@ TestApp
 ├── Components                      // Modular feature-based components
 │   ├── [ComponentName]             // Example: FirstComponent
 │   │   ├── Coordinator
-│   │   │   └── [ComponentCoordinator].swift
+│   │   │   ├── [ComponentCoordinator].swift       // Example: FirstComponentCoordinator
+│   │   │   └── Protocols                         // Coordinator protocols
+│   │   │       └── [ComponentCoordinatorProtocol].swift
 │   │   ├── [ScreenName]            // Example: FirstScreen
 │   │   │   ├── ViewModel
 │   │   │   │   ├── [ScreenViewModel].swift
