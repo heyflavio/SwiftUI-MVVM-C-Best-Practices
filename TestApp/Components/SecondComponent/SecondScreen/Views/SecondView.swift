@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SecondView: View {
-    @ObservedObject var viewModel: SecondViewModel
+    @ObservedObject var viewModel: SecondViewModel<SecondComponentCoordinator>
     
     @State private var displayedValue = ""
     @State private var showSheet = false

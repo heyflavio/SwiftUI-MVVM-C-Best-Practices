@@ -2,8 +2,8 @@ import Foundation
 import SwiftUI
 import Combine
 
-class FirstViewModel: ObservableObject {
-    
+class FirstViewModel<ComponentCoordinator: FirstComponentCoordinatorProtocol>: ObservableObject where ComponentCoordinator.Destination == FirstComponentCoordinator.Route {
+        
     // Inputs
     struct Inputs: FirstInputsProtocol {
         let inputSubject = PassthroughSubject<Void, Never>()
@@ -19,14 +19,16 @@ class FirstViewModel: ObservableObject {
     // Dependencies
     struct Dependencies {
         // Add services or other dependencies as needed
-        let appCoordinator: AppCoordinator
+        let appCoordinator: ComponentCoordinator
     }
     
     let inputs: FirstInputsProtocol
     let outputs: FirstOutputsProtocol
     
     // Coordinator
-    private let coordinator: FirstComponentCoordinator
+    private var coordinator: ComponentCoordinator {
+        self.dependencies.appCoordinator
+    }
     
     // Dependencies
     private let dependencies: Dependencies
@@ -40,7 +42,6 @@ class FirstViewModel: ObservableObject {
     ) {
         self.inputs = inputs
         self.outputs = outputs
-        self.coordinator = FirstComponentCoordinator(appCoordinator: dependencies.appCoordinator)
         self.dependencies = dependencies
         
         self.bindInputs()

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct FirstView: View {
-    @ObservedObject var viewModel: FirstViewModel
+    @ObservedObject var viewModel: FirstViewModel<FirstComponentCoordinator>
     
     @State private var displayedValue = ""
     @State private var showSheet = false

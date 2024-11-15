@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ThirdView: View {
-    @ObservedObject var viewModel: ThirdViewModel
+    @ObservedObject var viewModel: ThirdViewModel<SecondComponentCoordinator>
     
     @State private var displayedValue = ""
     @State private var showSheet = false

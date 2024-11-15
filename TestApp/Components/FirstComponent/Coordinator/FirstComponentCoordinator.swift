@@ -1,7 +1,6 @@
 import SwiftUI
 
-class FirstComponentCoordinator: ObservableObject {
-    
+class FirstComponentCoordinator: FirstComponentCoordinatorProtocol {    
     // Define the Screen enum inside the Coordinator for managing navigation destinations
     enum Route: Hashable {
         case `default`

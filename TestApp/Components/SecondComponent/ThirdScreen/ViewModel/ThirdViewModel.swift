@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-class ThirdViewModel: ObservableObject {
+class ThirdViewModel<ComponentCoordinator: SecondComponentCoordinatorProtocol>: ObservableObject where ComponentCoordinator.Destination == SecondComponentCoordinator.Route {
     
     // Inputs
     struct Inputs: ThirdInputsProtocol {
@@ -19,14 +19,14 @@ class ThirdViewModel: ObservableObject {
     
     struct Dependencies {
         // Add services or other dependencies as needed
-        let coordinator: SecondComponentCoordinator
+        let coordinator: ComponentCoordinator
     }
     
     let inputs: ThirdInputsProtocol
     let outputs: ThirdOutputsProtocol
     
     // Coordinator
-    private var coordinator: SecondComponentCoordinator {
+    private var coordinator: ComponentCoordinator {
         self.dependencies.coordinator
     }
     
