@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Kind</key>
+    <string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
+    <key>Platforms</key>
+    <array>
+      <string>com.apple.platform.iphoneos</string>
+    </array>
+    <key>Options</key>
+    <array>
+
+      <dict>
+        <key>Identifier</key>
+        <string>componentName</string>
+        <key>Required</key>
+        <true/>
+        <key>Name</key>
+        <string>Component Name:</string>
+        <key>Description</key>
+        <string>The name of the MVVM+C component</string>
+        <key>Type</key>
+        <string>text</string>
+      </dict>
+
+      <dict>
+        <key>Identifier</key>
+        <string>includeCoordinator</string>
+        <key>Name</key>
+        <string>Include Coordinator</string>
+        <key>Description</key>
+        <string>Check this box if you want to include a Coordinator file for this component.</string>
+        <key>Type</key>
+        <string>checkbox</string>
+        <key>Default</key>
+        <string>true</string>
+      </dict>
+
+    </array>
+  </dict>
+</plist>
