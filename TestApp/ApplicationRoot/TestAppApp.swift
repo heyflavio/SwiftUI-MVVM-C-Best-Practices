@@ -21,7 +21,7 @@ struct TestAppApp: App {
                 // Inject your modules here
                 FirstView(viewModel: .init(
                     dependencies: .init(
-                        appCoordinator: .init(appCoordinator: self.appCoordinator))))
+                        coordinator: .init(appCoordinator: self.appCoordinator))))
             }
         }
     }

@@ -20,7 +20,7 @@ class FirstComponentCoordinator: FirstComponentCoordinatorProtocol {
         self.appCoordinator.pop()
     }
     
-    func view(for route: Route = .default) -> some View {
+    func view(for route: Route) -> some View {
         switch route {
         case .default:
             return SecondView(

@@ -19,7 +19,7 @@ class FirstViewModel<ComponentCoordinator: FirstComponentCoordinatorProtocol>: O
     // Dependencies
     struct Dependencies {
         // Add services or other dependencies as needed
-        let appCoordinator: ComponentCoordinator
+        let coordinator: ComponentCoordinator
     }
     
     let inputs: FirstInputsProtocol
@@ -27,7 +27,7 @@ class FirstViewModel<ComponentCoordinator: FirstComponentCoordinatorProtocol>: O
     
     // Coordinator
     private var coordinator: ComponentCoordinator {
-        self.dependencies.appCoordinator
+        self.dependencies.coordinator
     }
     
     // Dependencies
