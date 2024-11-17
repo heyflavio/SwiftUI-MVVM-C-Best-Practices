@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kind</key>
+	<string>Xcode.IDEFoundation.TextSubstitutionFileTemplateKind</string>
+	<key>Identifier</key>
+	<string>com.heyflavio.mainapprouter</string>
+	<key>Title</key>
+	<string>Main App + Router Template</string>
+	<key>Description</key>
+	<string>Main App + Router Template</string>
+	<key>Version</key>
+	<string>1.0</string>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>componentName</string>
+			<key>Name</key>
+			<string>App Name:</string>
+			<key>Type</key>
+			<string>text</string>
+		</dict>
+	</array>
+	<key>DefaultCompletionName</key>
+	<string>Main App + Router Template</string>
+	<key>SortOrder</key>
+	<string>0</string>
+</dict>
+</plist>

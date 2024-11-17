@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ___VARIABLE_componentName___View: View {
-    @ObservedObject var viewModel: ___VARIABLE_componentName___ViewModel
+    @ObservedObject var viewModel: ___VARIABLE_componentName___ViewModel<___VARIABLE_componentName___Coordinator>
     
     @State private var displayedValue = ""
     @State private var showSheet = false
@@ -23,20 +23,21 @@ struct ___VARIABLE_componentName___View: View {
         }
         // Outputs
         .onReceive(self.viewModel.outputs.outputSubject) { newValue in
-            self.displayedValue = newValue // Update the displayed value when the subject emits a new value
+            // Update the displayed value when the subject emits a new value
+            self.displayedValue = newValue
         }
         .onReceive(self.viewModel.outputs.showModalView) { newValue in
             self.showSheet = newValue
         }
         // Navigation - at least one should be implemented
-//        .navigationDestination(for: ___VARIABLE_componentName___Route.self) { destination in
-//            self.viewModel.destinationContent(for: destination)
-//        }
-//        .sheet(isPresented: self.$showSheet) {
-//            self.viewModel.bottomSheetContent()
-//        }
-//        .fullScreenCover(isPresented: self.$showfullScreenCover) {
-//            self.viewModel.fullScreenContent()
-//        }
+        // .navigationDestination(for: ___VARIABLE_componentName___Route.self) { destination in
+        //     self.viewModel.destinationContent(for: destination)
+        // }
+        // .sheet(isPresented: self.$showSheet) {
+        //     self.viewModel.bottomSheetContent()
+        // }
+        // .fullScreenCover(isPresented: self.$showfullScreenCover) {
+        //     self.viewModel.fullScreenContent()
+        // }
     }
 }

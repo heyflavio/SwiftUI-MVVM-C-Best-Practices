@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-class ___VARIABLE_componentName___ViewModel: ObservableObject {
+class ___VARIABLE_componentName___ViewModel<ComponentCoordinator: ___VARIABLE_componentName___CoordinatorProtocol>: ObservableObject where ComponentCoordinator.Destination == ___VARIABLE_componentName___Coordinator.Route {
     
     // Inputs
     struct Inputs: ___VARIABLE_componentName___InputsProtocol {
@@ -17,16 +17,16 @@ class ___VARIABLE_componentName___ViewModel: ObservableObject {
         let dismissCurrentModalView = PassthroughSubject<Bool, Never>()
     }
     
+    // Dependencies
     struct Dependencies {
-        // Add services or other dependencies as needed
-        let coordinator: <#Coordinator Class#>
+        let coordinator: ComponentCoordinator
     }
     
     let inputs: ___VARIABLE_componentName___InputsProtocol
     let outputs: ___VARIABLE_componentName___OutputsProtocol
     
     // Coordinator
-    private var coordinator: <#Coordinator Class#> {
+    private var coordinator: ComponentCoordinator {
         self.dependencies.coordinator
     }
     
@@ -64,13 +64,6 @@ class ___VARIABLE_componentName___ViewModel: ObservableObject {
             }
             .store(in: &self.cancellables)
         
-        //If applicable, to programmatically dismiss a modal being shown on top
-        self.coordinator.showModalView
-            .sink { [weak self] value in
-                self?.outputs.showModalView.send(value)
-            }
-            .store(in: &self.cancellables)
-        
         //If applicable, to programmatically dismiss this current component (shown as a modal)
         self.inputs.navigateSubject
             .sink { [weak self] in
@@ -79,14 +72,13 @@ class ___VARIABLE_componentName___ViewModel: ObservableObject {
             }
             .store(in: &self.cancellables)
     }
-    
 }
 
-//Coordinator wrappers
+// Coordinator wrappers
 extension ___VARIABLE_componentName___ViewModel {
     
     // The logic for determining which view to navigate to
-    func destinationContent(for route: <#Coordinator Class#>.Route) -> some View {
+    func destinationContent(for route: ___VARIABLE_componentName___Coordinator.Route) -> some View {
         return self.coordinator.view(for: route)
     }
     
@@ -99,5 +91,4 @@ extension ___VARIABLE_componentName___ViewModel {
     func bottomSheetContent() -> some View {
         return self.coordinator.view(for: .default)
     }
-    
 }
