@@ -2,8 +2,9 @@ import Foundation
 import SwiftUI
 import Combine
 
-class FirstViewModel<ComponentCoordinator: FirstComponentCoordinatorProtocol>: ObservableObject where ComponentCoordinator.Destination == FirstComponentCoordinator.Route {
-        
+class FirstViewModel<ComponentCoordinator: FirstComponentCoordinatorProtocol>: ObservableObject
+where ComponentCoordinator.Destination == FirstComponentCoordinator.Route {
+    
     // Inputs
     struct Inputs: FirstInputsProtocol {
         let inputSubject = PassthroughSubject<Void, Never>()

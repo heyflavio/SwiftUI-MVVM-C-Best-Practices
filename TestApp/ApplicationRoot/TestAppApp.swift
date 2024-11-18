@@ -18,10 +18,7 @@ struct TestAppApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: self.$appCoordinator.path) {
-                // Inject your modules here
-                FirstView(viewModel: .init(
-                    dependencies: .init(
-                        coordinator: .init(appCoordinator: self.appCoordinator))))
+                self.appCoordinator.rootView()
             }
         }
     }

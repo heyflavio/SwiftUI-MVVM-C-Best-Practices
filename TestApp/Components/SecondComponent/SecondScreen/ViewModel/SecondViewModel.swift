@@ -2,8 +2,8 @@ import Foundation
 import SwiftUI
 import Combine
 
-class SecondViewModel<ComponentCoordinator: SecondComponentCoordinatorProtocol>: ObservableObject where ComponentCoordinator.Destination == SecondComponentCoordinator.Route {
-    
+class SecondViewModel<ComponentCoordinator: SecondComponentCoordinatorProtocol>: ObservableObject
+where ComponentCoordinator.Destination == SecondComponentCoordinator.Route {
     
     // Inputs
     struct Inputs: SecondInputsProtocol {

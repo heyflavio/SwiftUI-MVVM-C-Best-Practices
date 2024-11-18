@@ -27,3 +27,13 @@ class AppCoordinator: AppCoordinatorProtocol {
     }
 }
 
+extension AppCoordinator {
+    
+    @ViewBuilder
+    func rootView() -> some View {
+        FirstView(viewModel: .init(
+            dependencies: .init(
+                coordinator: .init(appCoordinator: self))))
+    }
+    
+}
