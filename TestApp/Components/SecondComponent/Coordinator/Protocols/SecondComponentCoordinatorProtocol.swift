@@ -8,13 +8,6 @@
 import Combine
 import SwiftUICore
 
-protocol SecondComponentCoordinatorProtocol: ObservableObject {
-    associatedtype Destination: Hashable
-    associatedtype ContentView: View
-
+protocol SecondComponentCoordinatorProtocol: ComponentCoordinatorProtocol {
     var showModalView: PassthroughSubject<Bool, Never> { get }
-    
-    func navigate(to destination: Destination)
-    func pop()
-    func view(for route: Destination) -> ContentView
 }
