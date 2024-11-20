@@ -1,7 +1,7 @@
 import SwiftUI
 import Combine
 
-protocol ___VARIABLE_componentName___CoordinatorProtocol: ObservableObject {
+protocol ___VARIABLE_componentName___CoordinatorProtocol: ComponentCoordinatorProtocol {
     associatedtype Destination: Hashable
     associatedtype ContentView: View
     
