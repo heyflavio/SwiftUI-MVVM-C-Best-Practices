@@ -15,8 +15,6 @@ where ComponentCoordinator.Destination == FirstComponentCoordinator.Route {
     struct Outputs: FirstOutputsProtocol {
         let outputSubject = PassthroughSubject<String, Never>()
         let showModalView = PassthroughSubject<Bool, Never>()
-        
-        let navigationDestination = PassthroughSubject<any View, Never>()
     }
     
     // Dependencies
