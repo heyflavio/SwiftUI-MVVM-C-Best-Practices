@@ -11,10 +11,10 @@ class ___VARIABLE_componentName___Coordinator: ___VARIABLE_componentName___Coord
     // Manages a given modal shown in this current context
     // let showModalView = PassthroughSubject<Void, Never>()
     
-    private let appCoordinator: AppCoordinator
+    private let appCoordinator: any AppCoordinatorProtocol
     private var cancellables = Set<AnyCancellable>()
     
-    init(appCoordinator: AppCoordinator) {
+    required init(appCoordinator: any AppCoordinatorProtocol) {
         self.appCoordinator = appCoordinator
     }
     

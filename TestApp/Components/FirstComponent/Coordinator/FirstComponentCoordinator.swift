@@ -1,14 +1,14 @@
 import SwiftUI
 
-class FirstComponentCoordinator: FirstComponentCoordinatorProtocol {    
+final class FirstComponentCoordinator: FirstComponentCoordinatorProtocol {    
     // Define the Screen enum inside the Coordinator for managing navigation destinations
     enum Route: Hashable {
         case `default`
     }
     
-    private let appCoordinator: AppCoordinator
+    private let appCoordinator: any AppCoordinatorProtocol
     
-    init(appCoordinator: AppCoordinator) {
+    required init(appCoordinator: any AppCoordinatorProtocol) {
         self.appCoordinator = appCoordinator
     }
     

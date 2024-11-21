@@ -1,7 +1,7 @@
 import SwiftUI
 import Combine
 
-class SecondComponentCoordinator: SecondComponentCoordinatorProtocol {
+final class SecondComponentCoordinator: SecondComponentCoordinatorProtocol {
     
     // Define the Screen enum inside the Coordinator for managing navigation destinations
     enum Route: Hashable {
@@ -10,10 +10,10 @@ class SecondComponentCoordinator: SecondComponentCoordinatorProtocol {
     
     let showModalView = PassthroughSubject<Bool, Never>()
 
-    private let appCoordinator: AppCoordinator
+    private let appCoordinator: any AppCoordinatorProtocol
     private var cancellables = Set<AnyCancellable>()
     
-    init(appCoordinator: AppCoordinator) {
+    required init(appCoordinator: any AppCoordinatorProtocol) {
         self.appCoordinator = appCoordinator
     }
     
