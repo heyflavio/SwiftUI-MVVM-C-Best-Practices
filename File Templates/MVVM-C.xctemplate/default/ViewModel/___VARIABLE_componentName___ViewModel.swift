@@ -2,8 +2,8 @@ import Foundation
 import SwiftUI
 import Combine
 
-final class ___VARIABLE_componentName___ViewModel<ComponentCoordinator: ___VARIABLE_componentName___CoordinatorProtocol>
-where ComponentCoordinator.Destination == ___VARIABLE_componentName___Coordinator.Route {
+final class ___VARIABLE_componentName___ViewModel<ComponentCoordinator: <#Component Coordinator Protocol#>>
+where ComponentCoordinator.Destination == <#Component Coordinator#>.Route {
     
     // Inputs
     struct Inputs: ___VARIABLE_componentName___InputsProtocol {
@@ -79,7 +79,7 @@ where ComponentCoordinator.Destination == ___VARIABLE_componentName___Coordinato
 extension ___VARIABLE_componentName___ViewModel {
     
     // The logic for determining which view to navigate to
-    func destinationContent(for route: ___VARIABLE_componentName___Coordinator.Route) -> some View {
+    func destinationContent(for route: <#Component Coordinator#>.Route) -> some View {
         return self.coordinator.view(for: route)
     }
     

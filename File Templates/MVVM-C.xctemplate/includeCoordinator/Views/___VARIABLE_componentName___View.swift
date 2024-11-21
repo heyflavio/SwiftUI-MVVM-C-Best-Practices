@@ -25,16 +25,34 @@ struct ___VARIABLE_componentName___View: View {
         // Outputs
         .bindPublisher(self.viewModel.outputs.outputSubject, to: self.$displayedValue)
         .bindPublisher(self.viewModel.outputs.showModalView, to: self.$showSheet)
-        
-        // Navigation - at least one should be implemented
-        // .navigationDestination(for: ___VARIABLE_componentName___Route.self) { destination in
-        //     self.viewModel.destinationContent(for: destination)
-        // }
-        // .sheet(isPresented: self.$showSheet) {
-        //     self.viewModel.bottomSheetContent()
-        // }
-        // .fullScreenCover(isPresented: self.$showfullScreenCover) {
-        //     self.viewModel.fullScreenContent()
-        // }
+        // Navigation handler
+        .handleNavigation(
+            viewModel: self.viewModel,
+            showSheet: self.$showSheet,
+            showFullScreenCover: self.$showfullScreenCover
+        )
     }
+    
+}
+
+// Handle Navigation
+private extension View {
+    
+    func handleNavigation(
+        viewModel: ___VARIABLE_componentName___ViewModel<___VARIABLE_componentName___Coordinator>,
+        showSheet: Binding<Bool>,
+        showFullScreenCover: Binding<Bool>
+    ) -> some View {
+        self
+            .navigationDestination(for: ___VARIABLE_componentName___Coordinator.Route.self) { destination in
+                viewModel.destinationContent(for: destination)
+            }
+            .sheet(isPresented: showSheet) {
+                viewModel.bottomSheetContent()
+            }
+            .fullScreenCover(isPresented: showFullScreenCover) {
+                viewModel.fullScreenContent()
+            }
+    }
+    
 }
