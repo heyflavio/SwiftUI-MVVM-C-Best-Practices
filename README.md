@@ -27,31 +27,34 @@ This structure aims for a clear separation of concerns, enhances testability, an
 TestApp
 │
 ├── ApplicationRoot
-│   ├── AppCoordinator.swift        // Root coordinator managing app flow
-│   ├── AppDelegate.swift           // App lifecycle (if required)
-│   └── TestAppApp.swift            // SwiftUI App entry point
+│   ├── Protocols
+│   │   ├── AppCoordinatorProtocol.swift
+│   │   └── ComponentCoordinatorProtocol.swift
+│   ├── AppCoordinator.swift                                // Root coordinator managing app flow
+│   ├── AppDelegate.swift                                   // App lifecycle (if required)
+│   └── TestAppApp.swift                                    // SwiftUI App entry point
 │
-├── Components                      // Modular feature-based components
-│   ├── [ComponentName]             // Example: FirstComponent
+├── Components                                              // Modular feature-based components
+│   ├── [ComponentName]                                     // Example: FirstComponent
 │   │   ├── Coordinator
-│   │   │   ├── [ComponentCoordinator].swift       // Example: FirstComponentCoordinator
-│   │   │   └── Protocols                         // Coordinator protocols
+│   │   │   ├── [ComponentCoordinator].swift                // Example: FirstComponentCoordinator
+│   │   │   └── Protocols                                   // Coordinator protocols
 │   │   │       └── [ComponentCoordinatorProtocol].swift
-│   │   ├── [ScreenName]            // Example: FirstScreen
+│   │   ├── [ScreenName]                                    // Example: FirstScreen
 │   │   │   ├── ViewModel
 │   │   │   │   ├── [ScreenViewModel].swift
-│   │   │   │   └── Protocols       // Input/Output protocols for ViewModel interactions
-│   │   │   │       ├── [InputsProtocol].swift     // Example: FirstInputsProtocol
-│   │   │   │       └── [OutputsProtocol].swift    // Example: FirstOutputsProtocol
+│   │   │   │   └── Protocols                               // Input/Output protocols for ViewModel interactions
+│   │   │   │       ├── [InputsProtocol].swift              // Example: FirstInputsProtocol
+│   │   │   │       └── [OutputsProtocol].swift             // Example: FirstOutputsProtocol
 │   │   │   └── Views
 │   │   │       └── [ScreenView].swift
-│   │   └── [OtherScreens]          // Additional screens within the component
+│   │   └── [OtherScreens]                                  // Additional screens within the component
 │
 └── Tests
     ├── Components
-    │   ├── [ComponentName]         // Example: FirstComponent
-    │   │   └── [TestFile].swift    // Example: FirstComponentCoordinatorTests.swift
-    │   └── [Other Components]      // Tests for other components
+    │   ├── [ComponentName]                                 // Example: FirstComponent
+    │   │   └── [TestFile].swift                            // Example: FirstViewModelTests.swift
+    │   └── [Other Components]                              // Tests for other components
     └── TestUtilities
         └── [Mock Implementations and Helpers]
 ```
