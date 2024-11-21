@@ -27,7 +27,7 @@ This structure aims for a clear separation of concerns, enhances testability, an
 ```plaintext
 TestApp
 │
-├── ApplicationRoot
+├── AppRoot
 │   ├── Protocols
 │   │   ├── AppCoordinatorProtocol.swift
 │   │   └── ComponentCoordinatorProtocol.swift
@@ -265,5 +265,3 @@ extension FirstViewModel {
 
 6. **Coordinator Wrappers**:
    - Additional methods provide `View`-specific content for navigation destinations, modal views, and full-screen presentations.
-
----
