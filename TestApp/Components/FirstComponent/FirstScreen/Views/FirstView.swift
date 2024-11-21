@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct FirstView: View {
-    @ObservedObject var viewModel: FirstViewModel<FirstComponentCoordinator>
+    let viewModel: FirstViewModel<FirstComponentCoordinator>
     
     @State private var displayedValue = ""
     @State private var showSheet = false
@@ -22,12 +22,8 @@ struct FirstView: View {
             }
         }
         // Outputs
-        .onReceive(self.viewModel.outputs.outputSubject) { newValue in
-            self.displayedValue = newValue // Update the displayed value when the subject emits a new value
-        }
-        .onReceive(self.viewModel.outputs.showModalView) { newValue in
-            self.showSheet = newValue
-        }
+        .bindPublisher(self.viewModel.outputs.outputSubject, to: self.$displayedValue)
+        .bindPublisher(self.viewModel.outputs.showModalView, to: self.$showSheet)
         // Navigation - at least one should be implemented
         .navigationDestination(
             for: FirstComponentCoordinator.Route.self
