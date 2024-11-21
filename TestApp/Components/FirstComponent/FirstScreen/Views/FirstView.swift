@@ -42,3 +42,14 @@ struct FirstView: View {
 //        }
     }
 }
+
+struct FirstViewPreviews: PreviewProvider {
+    static var previews: some View {
+        FirstView(
+            viewModel: .init(
+                dependencies: .init(
+                    coordinator: .init(
+                        appCoordinator: AppCoordinator()))))
+            .previewLayout(.sizeThatFits) // Optional: Adjust layout for the preview
+    }
+}
