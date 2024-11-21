@@ -50,27 +50,21 @@ where ComponentCoordinator.Destination == SecondComponentCoordinator.Route {
     
     private func bindInputs() {
         self.inputs.inputSubject
-            .sink { [weak self] in
-                self?.outputs.outputSubject.send("Second screen text output")
+            .map("Second screen text output")
+            .sink { [weak self] output in
+                self?.outputs.outputSubject.send(output)
                 self?.coordinator.pop()
             }
             .store(in: &self.cancellables)
         
         self.inputs.navigateSubject
-            .sink { [weak self] in
-                //Present Navigation Stack
-                //self?.coordinator.navigate(to: .default)
-                
-                //Present Modal
-                self?.outputs.showModalView.send(true)
-            }
+            .map(true)
+            .bind(to: self.outputs.showModalView)
             .store(in: &self.cancellables)
         
         self.coordinator.showModalView
-            .sink { [weak self] value in
-            self?.outputs.showModalView.send(value)
-        }
-        .store(in: &self.cancellables)
+            .bind(to: self.outputs.showModalView)
+            .store(in: &self.cancellables)
     }
     
 }

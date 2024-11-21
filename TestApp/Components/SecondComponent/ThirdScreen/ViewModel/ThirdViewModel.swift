@@ -50,34 +50,19 @@ where ComponentCoordinator.Destination == SecondComponentCoordinator.Route {
     
     private func bindInputs() {
         self.inputs.inputSubject
-            .sink { [weak self] in
-                self?.outputs.outputSubject.send("Text output")
-            }
-            .store(in: &self.cancellables)
-        
-        self.inputs.navigateSubject
-            .sink { [weak self] in
-                //Present Navigation Stack
-                //self?.coordinator.navigate(to: .default)
-                
-                //Present Modal
-                //self?.outputs.showModalView.send(true)
-            }
+            .map("Last Text output")
+            .bind(to: self.outputs.outputSubject)
             .store(in: &self.cancellables)
         
         //If applicable, to programmatically dismiss a modal being shown on top
         self.coordinator.showModalView
-            .sink { [weak self] value in
-                self?.outputs.showModalView.send(value)
-            }
+            .bind(to: self.outputs.showModalView)
             .store(in: &self.cancellables)
         
         //If applicable, to programmatically dismiss this current component (shown as a modal)
         self.inputs.navigateSubject
-            .sink { [weak self] in
-                //Present Modal
-                self?.outputs.dismissCurrentModalView.send(false)
-            }
+            .map(false)
+            .bind(to: self.outputs.dismissCurrentModalView)
             .store(in: &self.cancellables)
     }
     

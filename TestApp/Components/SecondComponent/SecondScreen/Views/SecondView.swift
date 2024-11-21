@@ -47,7 +47,9 @@ private extension View {
                 viewModel.destinationContent(for: destination)
             }
             .sheet(isPresented: showSheet) {
-                viewModel.bottomSheetContent()
+                NavigationStack {
+                    viewModel.bottomSheetContent()
+                }
             }
             .fullScreenCover(isPresented: showFullScreenCover) {
                 viewModel.fullScreenContent()

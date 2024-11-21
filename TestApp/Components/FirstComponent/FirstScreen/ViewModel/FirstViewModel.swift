@@ -50,9 +50,8 @@ where ComponentCoordinator.Destination == FirstComponentCoordinator.Route {
     
     private func bindInputs() {
         self.inputs.inputSubject
-            .sink { [weak self] in
-                self?.outputs.outputSubject.send("Text output")
-            }
+            .map("Text output")
+            .bind(to: self.outputs.outputSubject)
             .store(in: &self.cancellables)
         
         self.inputs.navigateSubject
