@@ -19,7 +19,8 @@ This project serves as an **abstraction** of a real-life application, providing 
 
 - The `AppRoot` handles the overall application lifecycle and navigation setup through the root coordinator. 
 - The `Components` folder follows a feature-based modular structure, where each component contains its own `Coordinator` and one or more `Screens`. Each screen consists of its own `View`, `ViewModel`, and associated protocols for `Input` and `Output` interactions.
-- The `Extensions` folder provides a space for reusable utilities and helpers. For this project, it is where you find a View extension for binding Combine publishers to SwiftUI state, and a Publisher extension for mapping and binding Combine publishers.
+  
+As an extra, but important piece, the `Extensions` folder provides a space for reusable utilities and helpers. For this project, it is where you find a View extension for binding Combine publishers to SwiftUI state, and a Publisher extension for mapping and binding Combine publishers.
 
 This structure aims for a clear separation of concerns, enhances testability, and promotes scalability. Additionally, the `Tests` folder mirrors the `Components` structure, providing targeted unit tests for each feature module and its screens.
 
