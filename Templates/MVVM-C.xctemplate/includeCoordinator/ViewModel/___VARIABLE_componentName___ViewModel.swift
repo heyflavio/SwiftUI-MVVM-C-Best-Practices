@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-class ___VARIABLE_componentName___ViewModel<ComponentCoordinator: ___VARIABLE_componentName___CoordinatorProtocol>: ObservableObject
+final class ___VARIABLE_componentName___ViewModel<ComponentCoordinator: ___VARIABLE_componentName___CoordinatorProtocol>: ObservableObject
 where ComponentCoordinator.Destination == ___VARIABLE_componentName___Coordinator.Route {
     
     // Inputs

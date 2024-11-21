@@ -1,6 +1,6 @@
 import SwiftUI
 
-class AppCoordinator: AppCoordinatorProtocol {
+final class AppCoordinator: AppCoordinatorProtocol {
     @Published var path: NavigationPath
     
     init(path: NavigationPath = NavigationPath()) {

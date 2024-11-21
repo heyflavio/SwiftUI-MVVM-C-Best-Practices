@@ -1,7 +1,7 @@
 import SwiftUI
 import Combine
 
-class ___VARIABLE_componentName___Coordinator: ___VARIABLE_componentName___CoordinatorProtocol {
+final class ___VARIABLE_componentName___Coordinator: ___VARIABLE_componentName___CoordinatorProtocol {
     
     // Define the Route enum inside the Coordinator for managing navigation destinations
     enum Route: Hashable {
